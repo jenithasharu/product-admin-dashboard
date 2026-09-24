@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState, useRef, Suspense } from "react";
+import { useEffect, useState, useRef} from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import api from "../lib/axios";
 import { Suspense } from "react";
 
-export default function ProductsContent() {
+ function ProductsContent() {
   const [products, setProducts] = useState([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
