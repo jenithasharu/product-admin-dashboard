@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import api from "../lib/axios";
+import { Suspense } from "react";
 
-export default function ProductsPage() {
+export default function ProductsContent() {
   const [products, setProducts] = useState([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -256,3 +257,12 @@ const confirmDelete = async () => {
     </div>
   );
 }
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<p className="p-8">Loading...</p>}>
+      <ProductsContent />
+    </Suspense>
+  );
+}
+
